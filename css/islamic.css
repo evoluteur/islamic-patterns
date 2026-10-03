@@ -1,0 +1,68 @@
+/* Islamic Patterns -- on top of the shared styles in common.css */
+
+.picture-wrap {
+  box-sizing: border-box;
+  width: 100%;
+  aspect-ratio: 1;
+  border: 3px solid var(--card-border);
+  border-radius: 12px;
+  overflow: hidden;
+  line-height: 0;
+  cursor: grab;
+  touch-action: none; /* dragging the pattern must not scroll the page */
+  user-select: none;
+  -webkit-user-select: none;
+}
+.picture-wrap.panning {
+  cursor: grabbing;
+}
+.picture-wrap svg {
+  width: 100%;
+  height: 100%;
+}
+.tools-panel {
+  margin-top: 16px;
+}
+.small {
+  font-size: 0.8em;
+  opacity: 0.75;
+  margin: -6px 0 12px;
+}
+.palettes button {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+.dot {
+  position: relative;
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.dot span {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 5px;
+  height: 3px;
+}
+.classics button {
+  font-size: 0.9em;
+}
+.about-title {
+  margin-top: 36px;
+}
+.explain {
+  max-width: 720px;
+  line-height: 1.55;
+}
+
+@media only screen and (max-width: 560px) {
+  h2 {
+    padding-right: 40px; /* clear of the GitHub icon */
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "name": "islamic-patterns",
+  "version": "1.0.0",
+  "description": "Generate Islamic geometric star patterns and interlaced girih strapwork from tilings of polygons, with Hankin's polygons-in-contact method, and save them as SVG or PNG.",
+  "repository": "github:evoluteur/islamic-patterns",
+  "homepage": "https://evoluteur.github.io/islamic-patterns/",
+  "copyright": "(c) 2026 Olivier Giulieri",
+  "author": "Olivier Giulieri (https://evoluteur.github.io/)",
+  "license": "MIT",
+  "keywords": [
+    "islamic-patterns",
+    "islamic-geometric-patterns",
+    "girih",
+    "star-patterns",
+    "islamic-art",
+    "hankin",
+    "polygons-in-contact",
+    "interlace",
+    "tiling",
+    "archimedean-tilings",
+    "sacred-geometry",
+    "svg",
+    "generative-art",
+    "esoteric",
+    "esoterica"
+  ]
+}

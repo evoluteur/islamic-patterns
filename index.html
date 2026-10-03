@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-063933E3C2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-063933E3C2");
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Islamic Patterns - Girih and Star Pattern Generator</title>
+    <meta
+      name="description"
+      content="Generate Islamic geometric patterns: eight- and twelve-point stars, rosettes and interlaced girih strapwork, drawn from tilings of polygons with Hankin's method. Change the angle, the colors and the weave, and save as SVG or PNG. Free, no sign-up."
+    />
+    <meta
+      name="keywords"
+      content="islamic patterns, islamic geometric patterns, girih, star patterns, islamic art, geometric pattern generator, hankin method, polygons in contact, interlace, strapwork, zellige, rosette, eight-point star, twelve-point star, sacred geometry, svg pattern"
+    />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="author" content="Olivier Giulieri" />
+    <link rel="canonical" href="https://evoluteur.github.io/islamic-patterns/" />
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <meta name="theme-color" content="#1a212d" />
+
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Overpass"
+    />
+    <link id="omg-core-css" rel="stylesheet" href="css/core.css" />
+    <link id="omg-theme-css" rel="stylesheet" href="css/themes/dark/dark.css" />
+    <link id="omg-density-css" rel="stylesheet" href="css/densities.css" />
+    <link rel="stylesheet" href="css/overrides.css" />
+    <link rel="stylesheet" href="css/common.css" />
+    <link rel="stylesheet" href="css/islamic.css" />
+
+    <script src="js/omg.js"></script>
+    <script src="js/girih.js"></script>
+    <script src="js/patterns.js"></script>
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Evoluteur" />
+    <meta property="og:title" content="Islamic Patterns" />
+    <meta
+      property="og:description"
+      content="Stars, rosettes and interlaced strapwork drawn from tilings of polygons. Change the angle and watch them open and close, then save as SVG or PNG."
+    />
+    <meta property="og:url" content="https://evoluteur.github.io/islamic-patterns/" />
+    <meta
+      property="og:image"
+      content="https://raw.githubusercontent.com/evoluteur/islamic-patterns/main/img/islamic-patterns.png"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+  </head>
+
+  <body
+    onload="
+      setupPage('home');
+      initPatterns();
+    "
+    id="omg-body"
+  >
+    <div id="omg-header">
+      <h1>Islamic Patterns</h1>
+      <div id="omg-theme-picker"></div>
+      <a
+        id="omg-github"
+        href="https://github.com/evoluteur/islamic-patterns"
+        target="_blank"
+        rel="noopener"
+        title="Islamic Patterns on GitHub"
+        aria-label="Islamic Patterns on GitHub"
+        ><svg viewBox="0 0 16 16" aria-hidden="true">
+          <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" /></svg
+      ></a>
+    </div>
+    <noscript
+      ><p class="tagline">
+        Islamic Patterns draws its patterns with JavaScript. Enable it to see
+        them.
+      </p></noscript
+    >
+    <h2>Stars and girih from a grid of polygons</h2>
+    <div class="content">
+      <p class="tagline">
+        Pick a tiling of polygons and a contact angle, and the lines grow into
+        stars, rosettes and interlaced strapwork, the way the craftsmen of the
+        Islamic world laid them out. Drag the angle to watch the stars open and
+        close, drag the picture to move it, then save it as SVG or PNG.
+      </p>
+
+      <div class="layout">
+        <div class="stage">
+          <div class="picture-wrap" id="picture"></div>
+          <div class="panel tools-panel">
+            <div class="btns">
+              <button type="button" id="btn-animate" class="ghost" aria-pressed="false">Animate</button>
+              <button type="button" id="btn-surprise" class="ghost">Surprise me</button>
+              <button type="button" id="btn-png">Save PNG</button>
+              <button type="button" id="btn-svg">Save SVG</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="side">
+          <div class="panel">
+            <h3>Pattern</h3>
+            <div class="ctl">
+              <label for="tiling">Tiling</label>
+              <select id="tiling"></select>
+            </div>
+            <p class="small" id="tiling-note"></p>
+            <div class="ctl">
+              <label for="angle">Contact angle</label><span class="val" id="angle-val"></span>
+              <input type="range" id="angle" min="10" max="80" step="0.5" />
+            </div>
+            <div class="ctl">
+              <label for="gap">Gap</label><span class="val" id="gap-val"></span>
+              <input type="range" id="gap" min="0" max="40" step="1" />
+            </div>
+          </div>
+
+          <div class="panel">
+            <h3>Lines</h3>
+            <div class="chips" id="style-chips" role="group" aria-label="Line style"></div>
+            <div class="ctl">
+              <label for="width">Width</label><span class="val" id="width-val"></span>
+              <input type="range" id="width" min="1" max="16" step="1" />
+            </div>
+            <div class="ctl">
+              <label for="size">Scale</label><span class="val" id="size-val"></span>
+              <input type="range" id="size" min="24" max="120" step="1" />
+            </div>
+          </div>
+
+          <div class="panel">
+            <h3>Colors</h3>
+            <div class="chips palettes" id="palette-chips" role="group" aria-label="Colors"></div>
+            <label class="opt"><input type="checkbox" id="fill" /> Color the stars</label>
+            <label class="opt"><input type="checkbox" id="show-tiles" /> Show the tiling</label>
+          </div>
+
+          <div class="panel">
+            <h3>Classics</h3>
+            <div class="btns classics" id="classics"></div>
+          </div>
+        </div>
+      </div>
+
+      <p class="note">
+        Tip: drag the picture to move the pattern, double-click to center it
+        again. The address of the page keeps the pattern, to share it.
+      </p>
+
+      <h3 class="about-title">How the patterns are made</h3>
+      <div class="explain">
+        <p>
+          Start from a tiling of regular polygons: octagons and squares,
+          dodecagons and hexagons, or simply hexagons. From the middle of every
+          edge, send two lines into each of the two tiles that share it, at the
+          same <strong>contact angle</strong> from the edge, crossing like an
+          X. Each line runs on until it meets the line coming from the next
+          edge. Do it for every tile, rub out the tiling, and the lines that
+          are left form stars and rosettes, one around each tile, joined by the
+          lines that cross at the edges.
+        </p>
+        <p>
+          This is the method of <strong>polygons in contact</strong>, which
+          the British scientist E. H. Hankin worked out in the 1920s from the
+          construction lines he found on Islamic monuments in India and Turkey,
+          and which the computer scientist Craig S. Kaplan described formally in
+          2005. A small angle makes stars with blunt points, close to the
+          tiling itself; a large one makes slender stars. A
+          <strong>gap</strong> splits each crossing point in two, for doubled
+          lines.
+        </p>
+        <p>
+          The lines are then joined into continuous bands and woven, over and
+          under, alternately, all along each band: the interlaced strapwork the
+          Persian tradition calls <em>girih</em>, "knot". It is always possible
+          to weave such a design so that every band alternates, which is why
+          the craftsmen could carve and inlay them without a single break in
+          the rhythm.
+        </p>
+        <p>
+          Geometric patterns are, with arabesque and calligraphy, one of the
+          three great kinds of ornament in Islamic art, from the Great Mosque
+          of Damascus and the Alhambra in Granada to the tilework of Isfahan,
+          Fez and Samarkand. In tile mosaic (<em>zellige</em>), carved stucco,
+          wood and brass, they were laid out with a compass and a straightedge,
+          and their endless repetition is often read as an image of the
+          infinite.
+        </p>
+        <p class="note">
+          The tilings are the Archimedean tilings, named by the polygons around
+          each corner: 4.8.8 is a square and two octagons, 4.6.12 a square, a
+          hexagon and a dodecagon. Everything is computed in your browser and
+          drawn as SVG.
+        </p>
+      </div>
+
+      <div class="footer">
+        <p>
+          Islamic Patterns is open source on
+          <a href="https://github.com/evoluteur/islamic-patterns">GitHub</a>
+          with an MIT license.
+        </p>
+        <p>
+          Had fun browsing the app?
+          <a href="https://github.com/sponsors/evoluteur"
+            >Buy me a coffee by becoming a sponsor</a
+          >.
+        </p>
+        <p>
+          You may also enjoy
+          <a href="https://evoluteur.github.io/mandala-maker/">Mandala Maker</a>,
+          <a href="https://evoluteur.github.io/sacred-geometry/">Sacred Geometry</a>
+          and
+          <a href="https://evoluteur.github.io/sri-yantra/">Sri Yantra</a>. For
+          more mystic arts as small web apps, see
+          <a href="https://evoluteur.github.io/esoterica.html">Esoterica</a>.
+        </p>
+        <p class="copyright">
+          &#169; 2026
+          <a href="https://evoluteur.github.io/">Olivier Giulieri</a>
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
