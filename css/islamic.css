@@ -20,6 +20,10 @@
   width: 100%;
   height: 100%;
 }
+/* the intro runs the full width of the page (common.css caps it at 680px) */
+.content > .tagline {
+  max-width: none;
+}
 .tools-panel {
   margin-top: 16px;
 }
