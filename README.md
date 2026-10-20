@@ -12,7 +12,7 @@ Generate Islamic geometric patterns right in your browser: eight- and twelve-poi
 - **Contact angle**: from 10° to 80°, from blunt stars close to the tiling to slender ones. **Animate** sweeps it back and forth.
 - **Gap**: splits each crossing point in two, for doubled lines.
 - **Lines**: interlaced (over and under, alternately, all along each band), bands, or plain lines, with their width and the scale of the pattern.
-- **Colors**: six palettes (Zellige, Gold on night, Isfahan, Terracotta, Ink on paper, Chalk on slate), with the stars colored by the polygon they grow from, and the tiling shown underneath if you like.
+- **Colors**: ten palettes, most from a tradition of tiles or inlay (Zellige, Gold on night, Isfahan, Alhambra, Iznik, Samarkand, Illumination, Terracotta, Ink on paper, Chalk on slate), with the stars colored by the polygon they grow from, and the tiling shown underneath if you like.
 - **Classics** to start from, and **Surprise me** for a random pattern.
 - **Save SVG** (vector, for printing, laser cutting or plotting) or **Save PNG** (2048 pixels square).
 
