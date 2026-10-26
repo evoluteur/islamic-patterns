@@ -23,7 +23,7 @@ Drag the picture to move the pattern, double-click to center it again. The setti
 Six designs to start from, all in the app under **Classics**. Click one to open it there.
 
 <table>
-  <tr>
+  <tr valign="top">
     <td align="center" width="33%">
       <a href="https://evoluteur.github.io/islamic-patterns/?t=4.6.12&a=62&g=0&s=46&w=6&st=interlace&c=zellige"><img src="img/classics/twelve-point-rosettes.png" alt="Twelve-point rosettes" width="260" /></a><br />
       <b>Twelve-point rosettes</b><br />
@@ -40,7 +40,7 @@ Six designs to start from, all in the app under **Classics**. Click one to open 
       <sub>6.6.6 (hexagons), 60°</sub>
     </td>
   </tr>
-  <tr>
+  <tr valign="top">
     <td align="center" width="33%">
       <a href="https://evoluteur.github.io/islamic-patterns/?t=3.12.12&a=30&g=0&s=40&w=6&st=interlace&c=night"><img src="img/classics/dodecagon-chain.png" alt="Dodecagon chain" width="260" /></a><br />
       <b>Dodecagon chain</b><br />
